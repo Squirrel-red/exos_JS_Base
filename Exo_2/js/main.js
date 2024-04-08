@@ -1,15 +1,23 @@
-const box = document.querySelector(".block_1");
-const boxes = document.querySelectorAll(".block_1");
-const carre_5 = document.querySelector(".block_2");
+const yellow = document.querySelector(".yellow");
+const red = document.querySelector(".red");
+const blue = document.querySelector(".blue");
+const green = document.querySelector(".green");
 
-boxes.forEach((box) =>{
-    box.addEventListener("click", function(){
-        box.classList.toggle("active");
-        const boxCSS = window.getComputedStyle(box);
-        const cssValue = boxCSS.getPropertyValue("background-color", " ajouter le code ici " );
-        carre_5.style.setProperty('background-color', cssValue);
-        carre_5.innerHTML = cssValue;
-    })
-})
+const identifier = document.querySelector('.identifier');
 
-console.log()
+
+const mainContainer = document.getElementById('main-container');
+const modelSquares = mainContainer.querySelectorAll('.square');
+
+modelSquares.forEach(element => {
+
+  element.addEventListener(('click'), () => {
+
+    changeIdentifierColor(element);
+  })
+});
+
+function changeIdentifierColor(element) {
+  identifier.style.backgroundColor = getComputedStyle(element).backgroundColor;
+  identifier.innerText = getComputedStyle(element).backgroundColor;
+};
